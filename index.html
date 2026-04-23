@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Photo</title>
+</head>
+<body style="text-align:center;">
+
+  <img src="farisha.jpg" width="250">
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Universe Message 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    background: black;
+  }
+
+  /* stars background */
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moveStars 10s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes moveStars {
+    from {transform: translateY(0);}
+    to {transform: translateY(-50px);}
+  }
+
+  .card {
+    position: relative;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(20,20,40,0.8);
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px;
+    margin: auto;
+  }
+
+  h1 {
+    color: #ff4d6d;
+  }
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background: #38bdf8;
+    color: black;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+
+  img {
+    width: 200px;
+    border-radius: 15px;
+    margin-top: 15px;
+    display: none;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="card">
+  <h1 id="text">🌌 Tap to begin universe message</h1>
+
+  <button onclick="next()">Start 💖</button>
+
+  <img id="photo" src="farisha.jpg">
+</div>
+
+<script>
+let step = 0;
+
+function next() {
+  const text = document.getElementById("text");
+  const photo = document.getElementById("photo");
+
+  if (step === 0) {
+    text.innerHTML = "✨ Searching the universe...";
+  }
+
+  else if (step === 1) {
+    text.innerHTML = "💫 Found someone special...";
+  }
+
+  else if (step === 2) {
+    text.innerHTML = "🌍 Loading her beauty data...";
+  }
+
+  else if (step === 3) {
+    photo.style.display = "block";
+    text.innerHTML = "Still processing... 😳";
+  }
+
+  else {
+    text.innerHTML =
+    "✨ Farisha is beautiful, cantik… infinite like the universe, endless like the stars ❤️🌌";
+    showHearts();
+  }
+
+  step++;
+}
+
+function showHearts() {
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.innerHTML = "✨";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    heart.style.fontSize = "20px";
+    heart.style.animation = "floatUp 3s linear forwards";
+    document.body.appendChild(heart);
+  }
+}
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}`;
+document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>
